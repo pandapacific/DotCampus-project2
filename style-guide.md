@@ -13,13 +13,13 @@ The designs were created to the following widths:
 
 ### Primary
 
-- Orange: hsl(26, 100%, 55%)
+- Orange: hsl(26,100%,55%)
 - Pale orange: hsl(25, 100%, 94%)
 
 ### Neutral
 
 - Very dark blue: hsl(220, 13%, 13%)
-- Dark grayish blue: hsl(219, 9%, 45%)
+- Dark grayish blue: hsl(219,9%,45%)
 - Grayish blue: hsl(220, 14%, 75%)
 - Light grayish blue: hsl(223, 64%, 98%)
 - White: hsl(0, 0%, 100%)
@@ -37,3 +37,5 @@ The designs were created to the following widths:
 - Weights: 400, 700
 
 > 💎 [Upgrade to Pro](https://www.frontendmentor.io/pro?ref=style-guide) for design file access to see all design details and get hands-on experience using a professional workflow with tools like Figma.
+
+

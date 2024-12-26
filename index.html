@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="output.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+    <title>Frontend Mentor | E-commerce product page</title>
+</head>
+
+<body class="box-border p-0 m-0">
+
+    <!-- main-grid -->
+    <div class="relative grid w-full h-auto grid-cols-1 grid-rows-1">
+
+        <!-- page content -->
+        <div class="w-full h-screen overflow-clip lg:w-[78%] mx-auto page-content">
+
+            <header class="flex w-[85%] m-auto py-[6%] lg:py-[3.5%] justify-between items-center lg:w-full lg:border-b lg:border-[#b6bcc8]">
+
+                <!-- left subheader -->
+                <div class="relative flex items-center gap-x-[15px] lg:gap-x-0 h-auto">
+
+                    <a href="#" class="h-[16px] md:h-8 cursor-pointer menu"><img src="./images/icon-menu.svg" alt="menu" class="h-full lg:hidden" id="navToggle"></a>
+
+                    <a href="#"><img src="./images/logo.svg" alt="logo" class="md:h-8 lg:h-[20px]"></a>
+
+                    <!-- header-nav -->
+                    <nav class="hidden lg:inline-block absolute left-[145%] z-25">
+            
+                        <ul class="grid overflow-x-visible grid-cols-[auto_auto_auto_auto_auto] text-[hsl(219,9%,45%)]">
+            
+                            <li class="relative inline-block mr-[25px] hover:text-black group">
+                                
+                                <a href="#">
+                                Collections
+                                </a>
+
+                                <span class="absolute left-0 right-0 bottom-[-180%] h-[3px] bg-[hsl(26,100%,55%)] scale-y-0 transition-transform group-hover:transform group-hover:scale-y-100 duration-300 rounded-sm"></span>
+
+                            </li>
+            
+                            <li class="relative inline-block mr-[25px] hover:text-black group">
+                                
+                                <a href="#">
+                                Men
+                                </a>
+
+                                <span class="absolute left-0 right-0 bottom-[-180%] h-[3px] bg-[hsl(26,100%,55%)] scale-y-0 transition-transform group-hover:transform group-hover:scale-y-100 duration-300 rounded-sm"></span>
+
+                            </li>
+            
+                            <li class="relative inline-block mr-[25px] hover:text-black group">
+                                
+                                <a href="#">
+                                Women
+                                </a>
+
+                                <span class="absolute left-0 right-0 bottom-[-180%] h-[3px] bg-[hsl(26,100%,55%)] scale-y-0 transition-transform group-hover:transform group-hover:scale-y-100 duration-300 rounded-sm"></span>
+
+                            </li>
+            
+                            <li class="relative inline-block mr-[25px] hover:text-black group">
+                                
+                                <a href="#">
+                                About
+                                </a>
+
+                                <span class="absolute left-0 right-0 bottom-[-180%] h-[3px] bg-[hsl(26,100%,55%)] scale-y-0 transition-transform group-hover:transform group-hover:scale-y-100 duration-300 rounded-sm"></span>
+
+                            </li>
+            
+                            <li class="relative inline-block hover:text-black group">
+                                
+                                <a href="#">
+                                Contact
+                                </a>
+
+                                <span class="absolute left-0 right-0 bottom-[-180%] h-[3px] bg-[hsl(26,100%,55%)] scale-y-0 transition-transform group-hover:transform group-hover:scale-y-100 duration-300 rounded-sm"></span>
+
+                            </li>
+            
+                        </ul>
+                        
+                    </nav>
+
+                </div>
+
+                <!-- right subheader -->
+                <div class="flex items-center gap-x-[20px] lg:gap-[40px]">
+
+                    <!-- cart -->
+                    <a href="#" class="relative w-5 cursor-pointer md:w-7 cart-wrap">
+
+                        <img src="./images/icon-cart.svg" alt="cart" class="w-full hover:brightness-75">
+    
+                        <span></span>
+    
+                    </a>
+    
+                    <!-- profile -->
+                    <a href="#" class="avatar"><img src="./images/image-avatar.png" alt="avatar" class="w-6 rounded-full cursor-pointer md:w-9 lg:w-10 hover:brightness-90 hover:outline-2 hover:outline-[hsl(26,100%,55%)]"></a>
+
+                </div>
+
+            </header>
+
+            <main class="flex flex-col w-full lg:grid lg:grid-cols-[43%_50%] lg:rows lg:justify-between lg:pt-[7%] lg:pb-[11.7%] lg:items-center">
+
+                <!-- product gallery -->
+                <section class="relative grid w-full grid-cols-1 grid-rows-[auto_auto] lg:max-w-[90%] lg:mx-auto ">
+
+                    <!-- product image -->
+                    <div class="relative grid w-full grid-cols-1 grid-rows-1 overflow-hidden lg:overflow-auto lg:my-[5%]">
+
+                        <img src="./images/image-product-1.jpg" alt="#" onclick="lightBox()" class=" productImage relative z-0 w-full aspect-[1.241] sneaker lg:rounded-3xl object-cover lg:aspect-square lg:object-fill">
+
+                        <!-- arrows -->
+                        <div class="absolute flex justify-between z-10 w-[90%] top-[50%] left-[50%] translate-[-50%] lg:hidden">
+
+                            <a href="#" class="grid rounded-full w-11 h-11 bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-previous.svg" alt="previous" class="w-2.5 translate-x-[-10%]"></a>
+
+                            <a href="#" class="grid rounded-full w-11 h-11 bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-next.svg" alt="next" class="w-2.5 translate-x-[10%]"></a>
+
+                        </div>
+
+                        <!-- cart -->
+                        <!-- <div class="hidden absolute z-20 w-[95%] aspect-[1.25] left-[50%] top-[5%] translate-x-[-50%] bg-[#f7f8fd] rounded-xl"></div> -->
+
+                    </div>
+
+                    <!-- other products -->
+                    <div class="hidden lg:grid relative z-0 w-full grid-cols-4 grid-rows-1 gap-x-[5%]">
+
+                        <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl" onclick="changeImage('./images/image-product-1.jpg',this)">
+
+                            <img src="./images/image-product-1-thumbnail.jpg" alt="product-1-thumbnail" class="relative rounded-2xl">
+
+                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+
+                        </button>
+                         
+                        <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl" onclick="changeImage('./images/image-product-2.jpg',this)">
+
+                            <img src = "./images/image-product-2-thumbnail.jpg" alt="product-2-thumbnail" class="relative rounded-2xl">
+
+                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+
+                        </button>
+
+                        <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl productThree" onclick="changeImage('./images/image-product-3.jpg',this)">
+
+                            <img src="./images/image-product-3-thumbnail.jpg" alt="product-3-thumbnail" class="relative rounded-2xl">
+
+                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+
+                        </button>
+                        
+                        <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl" onclick="changeImage('./images/image-product-4.jpg',this)">
+
+                            <img src="./images/image-product-4-thumbnail.jpg" alt="product-4-thumbnail" class="relative rounded-2xl">
+
+                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+
+                        </button>
+
+                    </div>
+
+                </section>
+        
+                <!-- product info -->
+                <section class="w-[85%] lg:w-full mx-auto py-[5%] lg:py-0">
+
+                    <h6 class="text-xs font-bold text-[#68707d] tracking-[2px] mt-[1%] mb-[5%]">SNEAKER COMPANY</h6>
+
+                    <h2 class="w-[70%] lg:w-[85%] product-name font-[900] leading-[110%] text-[#1d2025] mb-[6.5%] lg:mb-[7%]">Fall Limited Edition Sneakers</h2>
+
+                    <div class="text-[14px] text-[#68707d] leading-[25px] mb-[6%] lg:mb-[4%] product-text ">
+                        These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.
+                    </div>
+
+                    <!-- price tag -->
+                    <div class="flex items-center justify-between mb-[9%] lg:flex-col lg:items-start">
+
+                        <div class="flex items-baseline gap-2.5 lg:mb-[1.5%]">
+
+                            <span class="text-2xl font-[900]">$125.00</span>
+
+                            <span class="px-3 py-0.5  font-extrabold bg-black text-white rounded-[5px]">50%</span>
+
+                        </div>
+
+                        <s class="font-extrabold text-[#68707d]">$250.00</s>
+
+                    </div>
+
+                    <!-- cart-order -->
+                    <div class="flex flex-col w-full lg:flex-row lg:gap-x-[5%]">
+
+                        <!-- no of products -->
+                        <div class="flex w-full justify-between bg-[#f7f8fd] py-[5%] px-[10%] lg:py-[2.5%] lg:px-[5%] rounded-[8px] mb-[7.5%] lg:mb-0 lg:w-[35%]">
+
+                            <button><img src="./images/icon-minus.svg" alt="minus" class="w-[3.2vw] max-w-[15px] cursor-pointer hover:brightness-110"></button>
+
+                            <span class="font-[900] product-no text-[14px]">0</span>
+
+                            <button class="h-auto"><img src="./images/icon-plus.svg" alt="plus" class="w-[3.2vw] max-w-[15px] cursor-pointer hover:brightness-110"></button>
+
+                        </div>
+
+                        <!-- add to cart -->
+                        <button class="flex items-center justify-center w-full gap-x-3 bg-[#ff7d1a] py-[5%] px-[10%] lg:py-[2.5%] lg:px-[5%] rounded-lg cursor-pointer lg:w-[55%] hover:brightness-110 hover:drop-shadow-lg">
+
+                            <img class="inline" src="./images/icon-cart.svg" alt="cart-order">
+
+                            <span class="font-extrabold addtocart lg:text-[14px]">Add to cart</span>
+                            
+                        </button>
+
+                    </div>
+
+                </section>
+        
+            </main>
+
+        </div>
+
+        <!-- backdrop overlay -->
+        <div class="absolute hidden w-full z-25 h-full transition-transform duration-300 bg-[hsla(0,0%,20%,0.8)] backdrop-blur-sm" id="backdrop"></div>
+
+        <!-- side-bar -->
+        <nav id="mobilenav" class="fixed z-30 w-[68%] bg-white h-screen pt-[6%] transform -translate-x-full transition-transform duration-300">
+
+            <img src="./images/icon-close.svg" alt="close-nav" class="relative w-4 translate-0 hover:brightness-75 mb-[25%] ml-[7%]" id="navClose"> 
+
+            <ul class="w-full text-black">
+
+                <a href="#">
+                    <li class="font-extrabold pl-[7%] py-[1%] hover:bg-[hsla(0,0%,95%,1)]">
+                    Collections
+                    </li>
+                </a>
+
+                <a href="#">
+                    <li class="font-extrabold pl-[7%] py-[1%] hover:bg-[hsla(0,0%,95%,1)]">
+                    Men
+                    </li>
+                </a>
+
+                <a href="#">
+                    <li class="font-extrabold pl-[7%] py-[1%] hover:bg-[hsla(0,0%,95%,1)]">
+                    Women
+                    </li>
+                </a>
+
+                <a href="#">
+                    <li class="font-extrabold pl-[7%] py-[1%] hover:bg-[hsla(0,0%,95%,1)]">
+                    About
+                    </li>
+                </a>
+
+                <a href="#">
+                    <li class="font-extrabold pl-[7%] py-[1%] hover:bg-[hsla(0,0%,95%,1)]">
+                    Contact
+                    </li>
+                </a>
+
+            </ul>
+
+        </nav>
+        
+        <!-- lightbox layer-->
+        <div class="absolute z-40 grid w-full h-full grid-cols-1 grid-rows-1">
+
+            <!-- lightbox backdrop -->
+            <div class="w-full grid grid-cols-1 grid-rows-1 place-items-center relative transition-transform duration-300 bg-[hsla(0,0%,5%,0.8)] backdrop-blur-sm" id="lightboxBackdrop">
+
+                <!-- lightbox -->
+                <section class="absolute grid w-[38%] grid-cols-1 grid-rows-[auto_auto] place-items-center gap-y-[6%]">
+
+                    <!-- product gallery wrap-->
+                    <div class="relative w-full h-full">
+
+                        <!-- product image -->
+                        <img src="./images/image-product-1.jpg" alt="#" class="relative z-0 object-fill w-full productImage productimage rounded-3xl aspect-square">
+
+                        <!-- arrows -->
+                        <div class="absolute flex justify-between w-[112%] top-[50%] left-[50%] translate-[-50%]">
+
+                            <button onclick="previousImage()" class="grid rounded-full w-[60px] aspect-square bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-previous.svg" alt="previous" class="w-2.5 translate-x-[-10%]"></button>
+
+                            <button onclick="nextImage()" class="grid rounded-full w-[60px] aspect-square bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-next.svg" alt="next" class="w-2.5 translate-x-[10%]"></button>
+
+                        </div>
+
+                        <!-- close lightbox -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-6 aspect-square top-[-10%] right-0 cursor-pointer hover:brightness-75" id="lightboxClose" overflow="visible" preserveAspectRatio="xMidYMid meet">
+                            
+                            <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#ff7d1a" fill-rule="evenodd" transform="scale(1.79)">
+                        
+                        </svg>
+
+                    </div>
+
+                    <!-- other products -->
+                    <div id="lightthumb" class="grid relative z-0 w-[90%] grid-cols-4 grid-rows-1 gap-x-[5%]">
+
+                        <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl" onclick="changeImage('./images/image-product-1.jpg',this)">
+
+                            <img src="./images/image-product-1-thumbnail.jpg" alt="product-1-thumbnail" class="relative rounded-2xl">
+
+                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+
+                        </button>
+                        
+                        <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl" onclick="changeImage('./images/image-product-2.jpg',this)">
+
+                            <img src = "./images/image-product-2-thumbnail.jpg" alt="product-2-thumbnail" class="relative rounded-2xl">
+
+                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+
+                        </button>
+
+                        <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl productThree" onclick="changeImage('./images/image-product-3.jpg',this)">
+
+                            <img src="./images/image-product-3-thumbnail.jpg" alt="product-3-thumbnail" class="relative rounded-2xl">
+
+                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+
+                        </button>
+                        
+                        <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl" onclick="changeImage('./images/image-product-4.jpg',this)">
+
+                            <img src="./images/image-product-4-thumbnail.jpg" alt="product-4-thumbnail" class="relative rounded-2xl">
+
+                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </div>
+        
+        </div>
+
+    </div>   
+    
+    <script src="main.js"></script>
+
+</body>
+</html>

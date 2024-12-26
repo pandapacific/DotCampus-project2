@@ -1,0 +1,18 @@
+{
+  "name": "dotcampus-project2",
+  "version": "1.0.0",
+  "description": "E-commerce website",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": " npx @tailwindcss/cli -i input.css -o output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.0-beta.6",
+    "normalize.css": "^8.0.1",
+    "tailwindcss": "^4.0.0-beta.6"
+  }
+}

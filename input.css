@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@font-face{
+
+    font-family: 'kumbh-sans';
+    src: url('./fonts/kumbh-sans.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;    
+}
+
+body, html{font-family: 'kumbh-sans', sans-serif;}
+
+.product-text{
+    font-size: clamp(0px ,3.7vw, 16px);
+}
+
+.product-name{
+    font-size: clamp(0px ,6.4vw, 40px);
+}
