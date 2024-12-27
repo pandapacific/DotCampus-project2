@@ -872,11 +872,14 @@
   .aspect-video {
     aspect-ratio: 16 / 9;
   }
-  .h-1 {
-    height: calc(var(--spacing) * 1);
-  }
   .h-11 {
     height: calc(var(--spacing) * 11);
+  }
+  .h-\[35\%\] {
+    height: 35%;
+  }
+  .h-\[35vh\] {
+    height: 35vh;
   }
   .h-\[3px\] {
     height: 3px;
@@ -884,20 +887,11 @@
   .h-\[16px\] {
     height: 16px;
   }
-  .h-\[500px\] {
-    height: 500px;
-  }
-  .h-\[inherit\] {
-    height: inherit;
-  }
   .h-auto {
     height: auto;
   }
   .h-full {
     height: 100%;
-  }
-  .h-max {
-    height: max-content;
   }
   .h-screen {
     height: 100vh;
@@ -908,23 +902,14 @@
   .max-h-screen {
     max-height: 100vh;
   }
-  .min-h-max {
-    min-height: max-content;
-  }
   .min-h-none {
     min-height: none;
   }
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
-  }
-  .w-2 {
-    width: calc(var(--spacing) * 2);
   }
   .w-2\.5 {
     width: calc(var(--spacing) * 2.5);
@@ -943,6 +928,9 @@
   }
   .w-\[3\.2vw\] {
     width: 3.2vw;
+  }
+  .w-\[35\%\] {
+    width: 35%;
   }
   .w-\[38\%\] {
     width: 38%;
@@ -1430,9 +1418,6 @@
   .justify-items-stretch {
     justify-items: stretch;
   }
-  .gap-2 {
-    gap: calc(var(--spacing) * 2);
-  }
   .gap-2\.5 {
     gap: calc(var(--spacing) * 2.5);
   }
@@ -1918,9 +1903,6 @@
   }
   .px-\[10\%\] {
     padding-inline: 10%;
-  }
-  .py-0 {
-    padding-block: calc(var(--spacing) * 0);
   }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);

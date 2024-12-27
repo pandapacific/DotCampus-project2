@@ -60,23 +60,42 @@ function changeImage(newSrc, button) {
 // get src of all product images
 const srcs = ['/images/image-product-1.jpg', '/images/image-product-2.jpg', '/images/image-product-3.jpg', '/images/image-product-4.jpg'];
 
-const thumbNails = document.getElementById("lightthumb").children;
-const thumbsrcs = Array.from(thumbNails).map(thumb => thumb.querySelector("img").src);
-console.log(thumbsrcs);
-
 // convert the srcs to full urls
 const newsrcs = srcs.map((src) => {
     return window.location.origin + src;
 })
 
+const thumbNails = Array.from(document.getElementById("lightthumb").children);
+
+// const thumbsrcs = Array.from(thumbNails).map(thumb => thumb.querySelector("img").src);
+// console.log(thumbsrcs);
+
+// const oldThumbs = Array.from(thumbNails).map(thumbs => thumbs.querySelector("div").classList.contains("hidden"));
+    //  console.log(oldThumbs);
+
+
+// trigger lightbox layer by clicking big product image in desktop view
+const lightboxLayer = document.getElementById("lightboxLayer"); // select the lightbox layer
+
+function lightBox() {
+    if(window.innerWidth >= 1024) {
+        lightboxLayer.classList.toggle("hidden"); //toggle hidden class of the lightbox layer
+        lightboxLayer.classList.toggle("grid"); //toggle grid class of the lightbox layer
+    }
+}
+
+// close lightbox layer when close button is clicked
+const lightboxClose = document.getElementById("lightboxClose");
+lightboxClose.addEventListener("click", () => {
+    lightboxLayer.classList.toggle("hidden");
+    lightboxLayer.classList.toggle("grid");
+    console.log(lightboxLayer.classList);
+})
+
+
 
 // Change big product image when next arrow is clicked in lightbox
-function nextImage() {
-
-    // get the src of the current thumbnail
-    const oldThumbs = Array.from(thumbNails).map(thumbs => thumbs.querySelector("div").classList.contains("hidden"));
-    console.log(oldThumbs);
-    
+function nextImage() {    
 
     // get the current src of the product image
     let oldsrc = document.querySelector(".productImage").src;
@@ -102,6 +121,15 @@ function nextImage() {
     // change the src of the old image to the new src
     productImages.forEach(productImage => {
         productImage.src = newsrc;
+    })
+
+    // turn on the hidden class of the thumbnails
+    thumbNails.forEach(thumbNail => {
+
+        // Correctly access classList on the thumbNail itself
+        if(thumbNail.classList.contains("hidden") === false) {
+            thumbNail.querySelector("div").classList.add("hidden");
+        }        
     })
 }
 
@@ -141,6 +169,15 @@ function previousImage() {
     // change the src of the old image to the new src
     productImages.forEach(productImage => {
         productImage.src = newsrc;
+    })
+
+    // turn on the hidden class of the thumbnails
+    thumbNails.forEach(thumbNail => {
+
+        // Correctly access classList on the thumbNail itself
+        if(thumbNail.classList.contains("hidden") === false) {
+            thumbNail.querySelector("div").classList.add("hidden");
+        }        
     })
 }
 

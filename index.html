@@ -15,10 +15,10 @@
 <body class="box-border p-0 m-0">
 
     <!-- main-grid -->
-    <div class="relative grid w-full h-auto grid-cols-1 grid-rows-1">
+    <div class="relative grid w-full grid-cols-1 grid-rows-1">
 
         <!-- page content -->
-        <div class="w-full h-screen overflow-clip lg:w-[78%] mx-auto page-content">
+        <div class="w-full overflow-clip lg:w-[78%] mx-auto page-content">
 
             <header class="flex w-[85%] m-auto py-[6%] lg:py-[3.5%] justify-between items-center lg:w-full lg:border-b lg:border-[#b6bcc8]">
 
@@ -115,16 +115,16 @@
                 <section class="relative grid w-full grid-cols-1 grid-rows-[auto_auto] lg:max-w-[90%] lg:mx-auto ">
 
                     <!-- product image -->
-                    <div class="relative grid w-full grid-cols-1 grid-rows-1 overflow-hidden lg:overflow-auto lg:my-[5%]">
+                    <div class="relative grid w-full grid-cols-1 grid-rows-1 overflow-hidden lg:overflow-auto lg:my-[5%] cursor-pointer" id="lightBox" onclick="lightBox()">
 
-                        <img src="./images/image-product-1.jpg" alt="#" onclick="lightBox()" class=" productImage relative z-0 w-full aspect-[1.241] sneaker lg:rounded-3xl object-cover lg:aspect-square lg:object-fill">
+                        <img src="./images/image-product-1.jpg" alt="#" class=" productImage relative z-0 w-full aspect-[1.241] sneaker lg:rounded-3xl object-cover lg:aspect-square lg:object-fill">
 
                         <!-- arrows -->
                         <div class="absolute flex justify-between z-10 w-[90%] top-[50%] left-[50%] translate-[-50%] lg:hidden">
 
-                            <a href="#" class="grid rounded-full w-11 h-11 bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-previous.svg" alt="previous" class="w-2.5 translate-x-[-10%]"></a>
+                            <button onclick="previousImage()" class="grid rounded-full w-11 h-11 bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-previous.svg" alt="previous" class="w-2.5 translate-x-[-10%]"></button>
 
-                            <a href="#" class="grid rounded-full w-11 h-11 bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-next.svg" alt="next" class="w-2.5 translate-x-[10%]"></a>
+                            <button onclick="nextImage()" class="grid rounded-full w-11 h-11 bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-next.svg" alt="next" class="w-2.5 translate-x-[10%]"></button>
 
                         </div>
 
@@ -134,7 +134,7 @@
                     </div>
 
                     <!-- other products -->
-                    <div class="hidden lg:grid relative z-0 w-full grid-cols-4 grid-rows-1 gap-x-[5%]">
+                    <div id="thumbNails" class="hidden lg:grid relative z-0 w-full grid-cols-4 grid-rows-1 gap-x-[5%]">
 
                         <button class="relative grid grid-cols-1 grid-rows-1 overflow-hidden cursor-pointer thumbnail group rounded-2xl" onclick="changeImage('./images/image-product-1.jpg',this)">
 
@@ -274,13 +274,13 @@
         </nav>
         
         <!-- lightbox layer-->
-        <div class="absolute z-40 grid w-full h-full grid-cols-1 grid-rows-1">
+        <div id="lightboxLayer" class="absolute z-40 hidden w-full h-full grid-cols-1 grid-rows-1">
 
             <!-- lightbox backdrop -->
-            <div class="w-full grid grid-cols-1 grid-rows-1 place-items-center relative transition-transform duration-300 bg-[hsla(0,0%,5%,0.8)] backdrop-blur-sm" id="lightboxBackdrop">
+            <div class="w-full h-full grid grid-cols-1 grid-rows-1 place-items-center transition-transform duration-300 bg-[hsla(0,0%,5%,0.8)] backdrop-blur-sm" id="lightboxBackdrop">
 
                 <!-- lightbox -->
-                <section class="absolute grid w-[38%] grid-cols-1 grid-rows-[auto_auto] place-items-center gap-y-[6%]">
+                <section class="z-10 w-[35%] grid grid-cols-1 grid-rows-[auto_auto] place-items-center gap-y-[6%]">
 
                     <!-- product gallery wrap-->
                     <div class="relative w-full h-full">
@@ -313,7 +313,7 @@
 
                             <img src="./images/image-product-1-thumbnail.jpg" alt="product-1-thumbnail" class="relative rounded-2xl">
 
-                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+                            <div class="hidden active group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
 
                         </button>
                         
@@ -321,7 +321,7 @@
 
                             <img src = "./images/image-product-2-thumbnail.jpg" alt="product-2-thumbnail" class="relative rounded-2xl">
 
-                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+                            <div class="hidden active group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
 
                         </button>
 
@@ -329,7 +329,7 @@
 
                             <img src="./images/image-product-3-thumbnail.jpg" alt="product-3-thumbnail" class="relative rounded-2xl">
 
-                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+                            <div class="hidden active group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
 
                         </button>
                         
@@ -337,7 +337,7 @@
 
                             <img src="./images/image-product-4-thumbnail.jpg" alt="product-4-thumbnail" class="relative rounded-2xl">
 
-                            <div class="hidden group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
+                            <div class="hidden active group-hover:block rounded-2xl absolute w-full h-full transition bg-[rgba(255,255,255,0.5)] border-2  border-[hsl(26,100%,55%)]"></div>
 
                         </button>
 
