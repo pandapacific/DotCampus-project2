@@ -18,9 +18,9 @@
     <div class="relative grid w-full grid-cols-1 grid-rows-1">
 
         <!-- page content -->
-        <div class="w-full overflow-clip lg:w-[78%] mx-auto page-content">
+        <div class="relative w-full lg:w-[78%] mx-auto page-content">
 
-            <header class="flex w-[85%] m-auto py-[6%] lg:py-[3.5%] justify-between items-center lg:w-full lg:border-b lg:border-[#b6bcc8]">
+            <header class="relative flex w-[85%] m-auto py-[6%] lg:py-[3.5%] justify-between items-center lg:w-full lg:border-b lg:border-[#b6bcc8]">
 
                 <!-- left subheader -->
                 <div class="relative flex items-center gap-x-[15px] lg:gap-x-0 h-auto">
@@ -94,11 +94,11 @@
                 <div class="flex items-center gap-x-[20px] lg:gap-[40px]">
 
                     <!-- cart -->
-                    <a href="#" class="relative w-5 cursor-pointer md:w-7 cart-wrap">
+                    <a href="#" class="relative grid w-5 grid-cols-1 grid-rows-1 cursor-pointer md:w-7" id="cart">
 
-                        <img src="./images/icon-cart.svg" alt="cart" class="w-full hover:brightness-75">
+                        <img src="./images/icon-cart.svg" alt="cart" class="hover:brightness-75">
     
-                        <span></span>
+                        <span class="absolute py-[1px] px-[4px] rounded-full text-[7px] top-[-5px] right-[-5px] md:top-[-3px] md:right-[-2px] text-white font-extrabold bg-[hsl(26,100%,55%)] hidden" id="cartIcon"></span>
     
                     </a>
     
@@ -107,6 +107,50 @@
 
                 </div>
 
+                <!-- Cart -->
+                <div class=" hidden absolute z-30 w-[113%] max-w-[360px] right-[-6.5%] top-[113%] lg:top-[85%] bg-[rgb(247,248,253)] rounded-xl shadow-2xl" id="Cart">
+                    
+                    <h3 class="text-[18px] font-extrabold text-black px-[7%] py-[5%] border-b border-[hsl(219,7%,85%)]">Cart</h3>
+
+                    <div class="grid w-full grid-cols-1 grid-rows-1">
+
+                        <div class="relative z-0 hidden w-full" id="cartEmpty">
+
+                            <div class="text-[hsl(219,9%,45%)] font-extrabold text-center py-[23%]">Your cart is empty.</div>
+
+                        </div>
+
+                        <div class="relative w-full z-10 grid grid-cols-1 grid-rows-[auto_auto] gap-y-[15px] p-[5%]" id="cartLoaded">
+                            
+                            <div class="flex items-center justify-between gap-x-3.5 w-full text-sm">
+
+                                <img src="./images/image-product-1-thumbnail.jpg" alt="checkoutThumbnail" class="rounded-sm w-13 checkoutThumb aspect-square">
+                                
+                                <div class="w-full flex flex-col gap-y-[5px] text-[hsl(219,9%,45%)]">
+
+                                    <div class="">Fall Limited Edition Sneakers</div>
+
+                                    <div>
+                                        $<span id="unitCost">125.00</span> x
+                                        <span id="OrderNo"></span>
+                                        <span class="font-black text-black">
+                                            $<span id="orderTotal"></span>.00
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <img src="./images/icon-delete.svg" onclick="deleteCart" class="w-5 cursor-pointer hover:brightness-75" id="deleteCart" alt="deleteCart">
+
+                            </div>
+
+                            <button id="checkOut" onclick="checkOut()" class="w-full bg-[hsl(26,100%,55%)] font-extrabold py-[5%] rounded-xl hover:brightness-105 cursor-pointer">Checkout</button>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
             </header>
 
             <main class="flex flex-col w-full lg:grid lg:grid-cols-[43%_50%] lg:rows lg:justify-between lg:pt-[7%] lg:pb-[11.7%] lg:items-center">
@@ -127,9 +171,6 @@
                             <button onclick="nextImage()" class="grid rounded-full w-11 h-11 bg-amber-50 place-items-center hover:brightness-90"><img src="./images/icon-next.svg" alt="next" class="w-2.5 translate-x-[10%]"></button>
 
                         </div>
-
-                        <!-- cart -->
-                        <!-- <div class="hidden absolute z-20 w-[95%] aspect-[1.25] left-[50%] top-[5%] translate-x-[-50%] bg-[#f7f8fd] rounded-xl"></div> -->
 
                     </div>
 
@@ -204,16 +245,16 @@
                         <!-- no of products -->
                         <div class="flex w-full justify-between bg-[#f7f8fd] py-[5%] px-[10%] lg:py-[2.5%] lg:px-[5%] rounded-[8px] mb-[7.5%] lg:mb-0 lg:w-[35%]">
 
-                            <button><img src="./images/icon-minus.svg" alt="minus" class="w-[3.2vw] max-w-[15px] cursor-pointer hover:brightness-110"></button>
+                            <button onclick="minus()"><img src="./images/icon-minus.svg" alt="minus" class="w-[3.2vw] max-w-[15px] cursor-pointer hover:brightness-110"></button>
 
-                            <span class="font-[900] product-no text-[14px]">0</span>
+                            <span class="font-[900] text-[14px]" id="orderQuantity">0</span>
 
-                            <button class="h-auto"><img src="./images/icon-plus.svg" alt="plus" class="w-[3.2vw] max-w-[15px] cursor-pointer hover:brightness-110"></button>
+                            <button onclick="plus()" class="h-auto"><img src="./images/icon-plus.svg" alt="plus" class="w-[3.2vw] max-w-[15px] cursor-pointer hover:brightness-110"></button>
 
                         </div>
 
                         <!-- add to cart -->
-                        <button class="flex items-center justify-center w-full gap-x-3 bg-[#ff7d1a] py-[5%] px-[10%] lg:py-[2.5%] lg:px-[5%] rounded-lg cursor-pointer lg:w-[55%] hover:brightness-110 hover:drop-shadow-lg">
+                        <button onclick="addtoCart()" class="flex items-center justify-center w-full gap-x-3 bg-[#ff7d1a] py-[5%] px-[10%] lg:py-[2.5%] lg:px-[5%] rounded-lg cursor-pointer lg:w-[55%] hover:brightness-110 hover:drop-shadow-lg">
 
                             <img class="inline" src="./images/icon-cart.svg" alt="cart-order">
 

@@ -181,5 +181,83 @@ function previousImage() {
     })
 }
 
+// Cart Functionality
+const orderQuantity = document.getElementById("orderQuantity"); // select the order quantity
+const deleteCart = document.getElementById('deleteCart'); //get cart delete icon 
+const cartEmpty = document.getElementById('cartEmpty'); //get cart empty 
+const cartLoaded = document.getElementById('cartLoaded'); //get cart loaded 
+const cartIcon = document.getElementById('cartIcon'); //get cartIcon
+const cart = document.getElementById('cart'); //get cart wrap
+const Cart = document.getElementById('Cart'); //get cart content
+
+// cartIcon click functionality
+cart.addEventListener('click', () => {
+    Cart.classList.toggle('hidden');
+    console.log(cart);
+})
+
+function minus() {
+
+    let quantity = parseInt(orderQuantity.innerText); // get the order quantity in integer
+
+    if(quantity <= 0) {
+        orderQuantity.innerText = 0; // set the minimum value of the order quantity to 0
+    }
+    else{
+        orderQuantity.innerText = quantity - 1;  // decrement the order quantity
+    }
+    
+}
+
+function plus() {
+
+    let quantity = parseInt(orderQuantity.innerText); // get the order quantity in integer
+
+    orderQuantity.innerText = quantity + 1;  // increment the order quantity
+
+}
+
+function addtoCart() {
+
+    // make cartloaded visible
+    cartEmpty.classList.add('hidden');
+    cartLoaded.classList.remove('hidden');
+    cartLoaded.classList.add('grid');
+    
+    let OrderNo = document.getElementById('OrderNo'); //get OrderNo 
+    //get unitCost in integer format 
+    let unitCost = parseInt(document.getElementById('unitCost').innerText); 
+    // get the order quantity in integer format
+    let quantity = parseInt(orderQuantity.innerText); 
+
+    // make cartIcon visible when there's an order
+    if(quantity > 0) {
+            if(cartIcon.classList.contains('hidden')) {cartIcon.classList.remove('hidden');}
+    }
+    else{cartIcon.classList.add('hidden')}
+
+    cartIcon.innerText = orderQuantity.innerText;
+    OrderNo.innerText = orderQuantity.innerText;
+
+    orderQuantity.innerText = 0;
+
+    // calculate orderTotal
+    const orderTotal = unitCost * parseInt(OrderNo.innerText);
+    document.getElementById('orderTotal').innerText = orderTotal;
+}
+
+// cart delete functionality
+deleteCart.addEventListener('click', () => {
+    cartLoaded.classList.remove('grid');
+    cartLoaded.classList.add('hidden');
+    cartEmpty.classList.remove('hidden');
+})
+
+
+function checkOut() {
+
+}
+
+
 
 
