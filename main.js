@@ -190,12 +190,6 @@ const cartIcon = document.getElementById('cartIcon'); //get cartIcon
 const cart = document.getElementById('cart'); //get cart wrap
 const Cart = document.getElementById('Cart'); //get cart content
 
-// cartIcon click functionality
-cart.addEventListener('click', () => {
-    Cart.classList.toggle('hidden');
-    console.log(cart);
-})
-
 function minus() {
 
     let quantity = parseInt(orderQuantity.innerText); // get the order quantity in integer
@@ -253,11 +247,13 @@ deleteCart.addEventListener('click', () => {
     cartEmpty.classList.remove('hidden');
 })
 
-
-function checkOut() {
-
-}
-
-
+// cartIcon click functionality
+cart.addEventListener('click', () => {
+    let quantity = parseInt(cartIcon.innerText); 
+    if(quantity > 0) {
+    Cart.classList.toggle('hidden');
+        console.log(quantity);
+   }
+})
 
 
