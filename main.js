@@ -87,7 +87,7 @@ function nextImage() {
 
     // Extract the relative part of the URL by removing the origin
     const originPath = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/'); // Remove trailing file
-    const currentsrc = oldsrc.replace(originPath, '.'); // Replace base path with `.`
+    const currentsrc = oldsrc.replace(originPath, '.');  // Replace base path with `.`
 
     // get the index of the current src
     const index = srcs.indexOf(currentsrc);
