@@ -57,22 +57,7 @@ function changeImage(newSrc, button) {
     })
 }
 
-// get src of all product images
-const srcs = ['/images/image-product-1.jpg', '/images/image-product-2.jpg', '/images/image-product-3.jpg', '/images/image-product-4.jpg'];
-
-// convert the srcs to full urls
-const newsrcs = srcs.map((src) => {
-    return window.location.origin + src;
-})
-
 const thumbNails = Array.from(document.getElementById("lightthumb").children);
-
-// const thumbsrcs = Array.from(thumbNails).map(thumb => thumb.querySelector("img").src);
-// console.log(thumbsrcs);
-
-// const oldThumbs = Array.from(thumbNails).map(thumbs => thumbs.querySelector("div").classList.contains("hidden"));
-    //  console.log(oldThumbs);
-
 
 // trigger lightbox layer by clicking big product image in desktop view
 const lightboxLayer = document.getElementById("lightboxLayer"); // select the lightbox layer
@@ -89,10 +74,10 @@ const lightboxClose = document.getElementById("lightboxClose");
 lightboxClose.addEventListener("click", () => {
     lightboxLayer.classList.toggle("hidden");
     lightboxLayer.classList.toggle("grid");
-    console.log(lightboxLayer.classList);
 })
 
-
+// get src of all product images
+const srcs = ['./images/image-product-1.jpg', './images/image-product-2.jpg', './images/image-product-3.jpg', './images/image-product-4.jpg'];
 
 // Change big product image when next arrow is clicked in lightbox
 function nextImage() {    
@@ -100,8 +85,11 @@ function nextImage() {
     // get the current src of the product image
     let oldsrc = document.querySelector(".productImage").src;
 
+    // Extract the relative part of the URL by removing the origin
+    const currentsrc = oldsrc.replace(window.location.origin, '.');
+
     // get the index of the current src
-    const index = newsrcs.indexOf(oldsrc);
+    const index = srcs.indexOf(currentsrc);
 
     // get the next index
     let newIndex;
@@ -113,7 +101,7 @@ function nextImage() {
     }
 
     // get the src of the new image index
-    newsrc = newsrcs[newIndex];
+    newsrc = srcs[newIndex];
 
     // select the main image
     const productImages = document.querySelectorAll(".productImage");
@@ -136,21 +124,14 @@ function nextImage() {
 // Change big product image when previous arrow is clicked in lightbox
 function previousImage() {
 
-    // // toggle the hidden class of the thumbnails
-    // const thumbnails = document.querySelectorAll(".thumbnail"); // select all the thumbnails
-        
-    // thumbnails.forEach((thumbnail) => {
-    //     if(thumbnail.querySelector("div").classList.contains("hidden")) {}
-    //     else{
-    //         thumbnail.querySelector("div").classList.add("hidden");
-    //     }
-    // })
-
     // get the current src of the product image
     let oldsrc = document.querySelector(".productImage").src;
 
+    // Extract the relative part of the URL by removing the origin
+    const currentsrc = oldsrc.replace(window.location.origin, '.');
+
     // get the index of the current src
-    const index = newsrcs.indexOf(oldsrc);
+    const index = srcs.indexOf(currentsrc);
 
     // get the previous index
     let newIndex;
@@ -161,7 +142,7 @@ function previousImage() {
         newIndex = index - 1;
     }
 
-    newsrc = newsrcs[newIndex];
+    newsrc = srcs[newIndex];
 
     // select the main image
     const productImages = document.querySelectorAll(".productImage");
@@ -245,15 +226,27 @@ deleteCart.addEventListener('click', () => {
     cartLoaded.classList.remove('grid');
     cartLoaded.classList.add('hidden');
     cartEmpty.classList.remove('hidden');
+    cartIcon.innerText = 0;
+    cartIcon.classList.add('hidden')
 })
 
-// cartIcon click functionality
+// cart click functionality
 cart.addEventListener('click', () => {
     let quantity = parseInt(cartIcon.innerText); 
-    if(quantity > 0) {
     Cart.classList.toggle('hidden');
-        console.log(quantity);
+
+    if(quantity === 0 ) {
+    cartLoaded.classList.remove('grid');
+    cartLoaded.classList.add('hidden');
+    cartEmpty.classList.remove('hidden');
    }
+
+   if(quantity > 0 ) {
+    cartEmpty.classList.add('hidden');
+    cartLoaded.classList.remove('hidden');
+    cartLoaded.classList.add('grid');
+   }
+
 })
 
 
