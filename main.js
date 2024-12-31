@@ -129,7 +129,8 @@ function previousImage() {
     console.log(oldsrc);
 
     // Extract the relative part of the URL by removing the origin
-    const currentsrc = oldsrc.replace(window.location.origin, '.');
+    const originPath = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/'); // Remove trailing file
+    const currentsrc = oldsrc.replace(originPath, '.'); // Replace base path with `.`
     console.log(currentsrc);
 
     // get the index of the current src
