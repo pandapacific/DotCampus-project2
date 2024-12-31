@@ -101,7 +101,7 @@ function nextImage() {
     }
 
     // get the src of the new image index
-    newsrc = srcs[newIndex];
+    let newsrc = srcs[newIndex];
 
     // select the main image
     const productImages = document.querySelectorAll(".productImage");
@@ -126,9 +126,11 @@ function previousImage() {
 
     // get the current src of the product image
     let oldsrc = document.querySelector(".productImage").src;
+    console.log(oldsrc);
 
     // Extract the relative part of the URL by removing the origin
     const currentsrc = oldsrc.replace(window.location.origin, '.');
+    console.log(currentsrc);
 
     // get the index of the current src
     const index = srcs.indexOf(currentsrc);
@@ -142,7 +144,8 @@ function previousImage() {
         newIndex = index - 1;
     }
 
-    newsrc = srcs[newIndex];
+    let newsrc = srcs[newIndex];
+    console.log(newsrc);
 
     // select the main image
     const productImages = document.querySelectorAll(".productImage");
